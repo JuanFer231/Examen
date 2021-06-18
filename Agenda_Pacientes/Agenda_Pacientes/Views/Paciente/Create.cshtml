@@ -1,0 +1,215 @@
+﻿@model Agenda_Pacientes.Models.Paciente
+
+@{
+    ViewData["Tittle"] = "Agendar Paciente ";
+
+}
+
+
+
+
+<h1 class="titulo" align=center >Agendar Paciente</h1>
+
+<hr />
+
+<style>
+
+    /* CSS Document */
+
+    .grupoizquierda {
+        float: left;
+    }
+
+    .grupoderecha {
+        float: left;
+    }
+
+    .titulo {
+        background: #483D8B;
+        color: white;
+        font-size: 35px;
+        font-family: arial;
+    }
+
+    .datos label {
+        width: 25%;
+        float: left;
+        color: #CF0;
+    }
+
+
+    input[type=text] {
+        border: 2px solid grey;
+        border-radius: 4px;
+    }
+
+        input[type=text]:focus {
+            border: 3px solid #555;
+        }
+</style>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+
+
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-warning">Volver</a>
+                </div>
+                <h2>Nombres y Apellidos del paciente:</h2>
+                <div class="input-group">
+
+                    <input asp-for="PacienteNombre" class="form-control" />
+                    <label asp-for="PacienteNombre" class="control-label"></label>
+                    <span asp-validation-for="PacienteNombre" class="text-danger"> </span>
+
+                    <span class="input-group-addon"></span>
+
+                    <input asp-for="PacientePrimerApellido" class="form-control" />
+                    <label asp-for="PacientePrimerApellido" class="control-label"></label>
+                    <span asp-validation-for="PacientePrimerApellido" class="text-danger"> </span>
+
+                    <span class="input-group-addon"></span>
+
+                    <input asp-for="PacienteSegundoApellido" class="form-control" />
+                    <label asp-for="PacienteSegundoApellido" class="control-label"></label>
+                    <span asp-validation-for="PacienteSegundoApellido" class="text-danger"> </span>
+
+
+                </div>
+                <h2>Correo Electronico:</h2>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input asp-for="PacienteCorreo" class="form-control" />
+                            <label asp-for="PacienteCorreo" class="control-label"></label>
+                            <span asp-validation-for="PacienteCorreo" class="text-danger"> </span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Nombre del Acompañante:</h2>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group">
+
+                            <input asp-for="PacineteAcompananteNombre" class="form-control" />
+                            <label asp-for="PacineteAcompananteNombre" class="control-label"></label>
+                            <span asp-validation-for="PacineteAcompananteNombre" class="text-danger"> </span>
+
+                            <span class="input-group-addon"></span>
+
+                            <input asp-for="PacienteAcompananteApellido" class="form-control" />
+                            <label asp-for="PacienteAcompananteApellido" class="control-label"></label>
+                            <span asp-validation-for="PacienteAcompananteApellido" class="text-danger"> </span>
+
+                        </div>
+                    </div>
+                </div>
+                <h2>Direccion:</h2>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input asp-for="PacienteDireccionCalle" class="form-control" />
+                            <label asp-for="PacienteDireccionCalle" class="control-label"></label>
+                            <span asp-validation-for="PacienteDireccionCalle" class="text-danger"> </span>
+
+                            <input asp-for="PacienteDireccionCalle2" class="form-control" />
+                            <label asp-for="PacienteDireccionCalle2" class="control-label"></label>
+                            <span asp-validation-for="PacienteDireccionCalle2" class="text-danger"> </span>
+
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <input asp-for="PacienteCiudad" class="form-control" />
+                                        <label asp-for="PacienteCiudad" class="control-label"></label>
+                                        <span asp-validation-for="PacienteCiudad" class="text-danger"> </span>
+
+                                        <span class="input-group-addon"></span>
+                                        <input asp-for="PacienteEstado_Provincia" class="form-control" />
+                                        <label asp-for="PacienteEstado_Provincia" class="control-label"></label>
+                                        <span asp-validation-for="PacienteEstado_Provincia" class="text-danger"> </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input asp-for="PacienteCodigoPostal" class="form-control" />
+                                        <label asp-for="PacienteCodigoPostal" class="control-label"></label>
+                                        <span asp-validation-for="PacienteCodigoPostal" class="text-danger"> </span>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Numero de Telefono:</h2>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group">
+
+                            <input asp-for="PacienteNTelefonoCodigoArea " class="form-control" />
+                            <label asp-for="PacienteNTelefonoCodigoArea " class="control-label"></label>
+                            <span asp-validation-for="PacienteNTelefonoCodigoArea " class="text-danger"> </span>
+
+
+
+
+                            <span class="input-group-addon"></span>
+
+                            <input asp-for="PacienteNTelefono" class="form-control" />
+                            <label asp-for="PacienteNTelefono" class="control-label"></label>
+                            <span asp-validation-for="PacienteNTelefono" class="text-danger"> </span>
+
+                        </div>
+                    </div>
+                </div>
+                <h2>Numero de WhatsApp:</h2>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input asp-for="PacienteNwasapcodigo" class="form-control" />
+                            <label asp-for="PacienteNwasapcodigo" class="control-label"></label>
+                            <span asp-validation-for="PacienteNwasapcodigo" class="text-danger"> </span>
+
+                            <span class="input-group-addon"></span>
+
+                            <input asp-for="PacienteNwasap" class="form-control" />
+                            <label asp-for="PacienteNwasap" class="control-label"></label>
+                            <span asp-validation-for="PacienteNwasap" class="text-danger"> </span>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
